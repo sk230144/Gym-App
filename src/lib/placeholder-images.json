@@ -3,50 +3,74 @@
     {
       "id": "hero-background",
       "description": "A modern gym interior with various workout equipment.",
-      "imageUrl": "https://picsum.photos/seed/10/1920/1080",
+      "imageUrl": "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=1975&auto=format&fit=crop",
       "imageHint": "gym interior"
     },
     {
       "id": "facility-weights",
       "description": "A rack of dumbbells of various weights.",
-      "imageUrl": "https://picsum.photos/seed/11/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=2070&auto=format&fit=crop",
       "imageHint": "weights"
     },
     {
       "id": "facility-cardio",
       "description": "A row of modern treadmills.",
-      "imageUrl": "https://picsum.photos/seed/12/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop",
       "imageHint": "treadmills"
     },
     {
       "id": "facility-yoga",
       "description": "A serene yoga studio with mats.",
-      "imageUrl": "https://picsum.photos/seed/13/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2120&auto=format&fit=crop",
       "imageHint": "yoga studio"
     },
     {
       "id": "trainer-1",
       "description": "Portrait of a male fitness trainer.",
-      "imageUrl": "https://picsum.photos/seed/21/400/400",
+      "imageUrl": "https://images.unsplash.com/photo-1548690312-e3b507d8c110?q=80&w=1974&auto=format&fit=crop",
       "imageHint": "fitness trainer"
     },
     {
       "id": "trainer-2",
       "description": "Portrait of a female fitness trainer.",
-      "imageUrl": "https://picsum.photos/seed/22/400/400",
+      "imageUrl": "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop",
       "imageHint": "fitness trainer"
     },
     {
       "id": "trainer-3",
       "description": "Portrait of a non-binary fitness trainer.",
-      "imageUrl": "https://picsum.photos/seed/23/400/400",
+      "imageUrl": "https://images.unsplash.com/photo-1611672585383-526839f1338c?q=80&w=1974&auto=format&fit=crop",
       "imageHint": "fitness trainer"
     },
     {
       "id": "owner-1",
       "description": "Portrait of the gym owner.",
-      "imageUrl": "https://picsum.photos/seed/31/400/500",
+      "imageUrl": "https://images.unsplash.com/photo-1600361596844-596767781373?q=80&w=1974&auto=format&fit=crop",
       "imageHint": "gym owner"
+    },
+    {
+      "id": "testimonial-1",
+      "description": "Happy gym member giving a thumbs up.",
+      "imageUrl": "https://images.unsplash.com/photo-1556742053-99d0a0e94a53?q=80&w=1974&auto=format&fit=crop",
+      "imageHint": "happy member"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "Gym member smiling after a workout.",
+      "imageUrl": "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=1974&auto=format&fit=crop",
+      "imageHint": "member smiling"
+    },
+    {
+      "id": "testimonial-3",
+      "description": "Two gym members high-fiving.",
+      "imageUrl": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "community"
+    },
+    {
+      "id": "join-us-background",
+      "description": "People working out in a vibrant gym.",
+      "imageUrl": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=2069&auto=format&fit=crop",
+      "imageHint": "gym class"
     }
   ]
 }
