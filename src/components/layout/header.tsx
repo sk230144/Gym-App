@@ -20,7 +20,7 @@ const navLinks = [
   { href: "/#trainers", label: "Trainers" },
   { href: "/#about", label: "About" },
   { href: "/contact", label: "Contact" },
-  { href: "/admin", label: "Admin" },
+  { href: "/admin", label: "Members" },
 ];
 
 const Header = () => {
