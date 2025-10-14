@@ -3,6 +3,8 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
+import { PageLoader } from '@/components/layout/page-loader';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'FlexFit Gym',
@@ -29,6 +31,9 @@ export default function RootLayout({
       </head>
       <body className="font-body bg-background text-foreground antialiased">
         <div className="relative flex min-h-dvh flex-col">
+          <Suspense fallback={null}>
+            <PageLoader />
+          </Suspense>
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

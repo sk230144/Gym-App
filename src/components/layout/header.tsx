@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Menu, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -19,6 +19,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogClose,
 } from "@/components/ui/dialog";
 import { useState } from "react";
 import Image from "next/image";
@@ -34,15 +35,15 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
-const PasswordProtectionDialog = () => {
+const PasswordProtectionDialog = ({ onCorrectPassword }: { onCorrectPassword: () => void }) => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const router = useRouter();
-
+    
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (password === '1234') {
-            router.push('/admin');
+            setError('');
+            onCorrectPassword();
         } else {
             setError('Incorrect password. Please try again.');
         }
@@ -76,9 +77,11 @@ const PasswordProtectionDialog = () => {
                     }}
                 />
                 {error && <Alert variant="destructive"><AlertDescription>{error}</AlertDescription></Alert>}
-                <Button type="submit" className="w-full">
-                    Enter
-                </Button>
+                 <DialogClose asChild>
+                    <Button type="submit" className="w-full">
+                        Enter
+                    </Button>
+                </DialogClose>
             </form>
         </DialogContent>
     );
@@ -87,6 +90,14 @@ const PasswordProtectionDialog = () => {
 
 const Header = () => {
   const pathname = usePathname();
+  const router = useRouter();
+  const [isPasswordDialogOpen, setPasswordDialogOpen] = useState(false);
+  const [isNavigating, setIsNavigating] = useState(false);
+
+  const handleAdminNavigation = () => {
+    setIsNavigating(true);
+    router.push('/admin');
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -95,7 +106,7 @@ const Header = () => {
           <Logo />
         </Link>
 
-        <Dialog>
+        <Dialog open={isPasswordDialogOpen} onOpenChange={setPasswordDialogOpen}>
             <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             {navLinks.map((link) => (
                 <Link
@@ -113,11 +124,11 @@ const Header = () => {
             ))}
              <DialogTrigger asChild>
                 <span className="transition-colors hover:text-primary text-muted-foreground cursor-pointer">
-                    Members
+                    {isNavigating ? <Loader2 className="animate-spin" /> : 'Members'}
                 </span>
             </DialogTrigger>
             </nav>
-            <PasswordProtectionDialog />
+            <PasswordProtectionDialog onCorrectPassword={handleAdminNavigation} />
         </Dialog>
 
 
@@ -145,13 +156,13 @@ const Header = () => {
                       </Link>
                     </SheetClose>
                   ))}
-                   <Dialog>
+                   <Dialog open={isPasswordDialogOpen} onOpenChange={setPasswordDialogOpen}>
                         <DialogTrigger asChild>
                             <span className="text-lg font-medium transition-colors hover:text-primary cursor-pointer text-left">
-                                Members
+                                {isNavigating ? <Loader2 className="animate-spin" /> : 'Members'}
                             </span>
                         </DialogTrigger>
-                        <PasswordProtectionDialog />
+                        <PasswordProtectionDialog onCorrectPassword={handleAdminNavigation} />
                     </Dialog>
                 </nav>
               </div>
