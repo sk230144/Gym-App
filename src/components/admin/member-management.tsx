@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, type FC } from "react";
+import { useState, useMemo, type FC, useEffect } from "react";
 import {
   Table,
   TableBody,
@@ -55,6 +55,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { initialMembers, type Member } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import { Skeleton } from "../ui/skeleton";
 
 const addMemberSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
@@ -76,6 +77,11 @@ const MemberManagement: FC = () => {
   } | null>({ key: "name", direction: "asc" });
   const [isAddMemberOpen, setAddMemberOpen] = useState(false);
   const { toast } = useToast();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const form = useForm<z.infer<typeof addMemberSchema>>({
     resolver: zodResolver(addMemberSchema),
@@ -192,6 +198,44 @@ const MemberManagement: FC = () => {
         </div>
     </TableHead>
   );
+
+  if (!isClient) {
+    return (
+      <div className="space-y-4">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <Skeleton className="h-10 w-full md:max-w-sm" />
+          <div className="flex items-center gap-2 w-full md:w-auto">
+            <Skeleton className="h-10 w-[180px]" />
+            <Skeleton className="h-10 w-[140px]" />
+          </div>
+        </div>
+        <div className="rounded-md border">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Name</TableHead>
+                <TableHead>Join Date</TableHead>
+                <TableHead className="text-center">Status</TableHead>
+                <TableHead className="text-center">Months Paid</TableHead>
+                <TableHead className="text-right">Actions</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {Array.from({ length: 5 }).map((_, i) => (
+                <TableRow key={i}>
+                  <TableCell><Skeleton className="h-5 w-24" /></TableCell>
+                  <TableCell><Skeleton className="h-5 w-20" /></TableCell>
+                  <TableCell className="text-center"><Skeleton className="h-6 w-16 mx-auto" /></TableCell>
+                  <TableCell className="text-center"><Skeleton className="h-5 w-8 mx-auto" /></TableCell>
+                  <TableCell className="text-right"><Skeleton className="h-8 w-8 ml-auto" /></TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-4">
@@ -374,3 +418,5 @@ const MemberManagement: FC = () => {
 };
 
 export default MemberManagement;
+
+    
