@@ -83,6 +83,24 @@
       "description": "People working out in a vibrant gym.",
       "imageUrl": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=2069&auto=format&fit=crop",
       "imageHint": "gym class"
+    },
+    {
+      "id": "class-strength",
+      "description": "A trainer helps a member with weightlifting.",
+      "imageUrl": "https://images.unsplash.com/photo-1517963879433-6ad2b002a297?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "weightlifting training"
+    },
+    {
+      "id": "class-yoga",
+      "description": "A yoga class in session with an instructor.",
+      "imageUrl": "https://images.unsplash.com/photo-1599447462453-05b3547db644?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "yoga class"
+    },
+    {
+      "id": "class-hiit",
+      "description": "A high-intensity interval training class in progress.",
+      "imageUrl": "https://images.unsplash.com/photo-1594882645126-14020914d58d?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "HIIT class"
     }
   ]
 }

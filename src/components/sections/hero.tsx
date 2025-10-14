@@ -27,7 +27,7 @@ const slides = [
     title: "Unleash Your Potential",
     description: "Discover our wide range of classes, from high-intensity interval training to calming yoga sessions.",
     buttonText: "Explore Classes",
-    buttonLink: "#facilities",
+    buttonLink: "/classes",
   },
   {
     id: "hero-slide-3",
@@ -48,6 +48,7 @@ const HeroSection = () => {
             <Carousel 
                 className="w-full"
                 plugins={[plugin.current]}
+                opts={{ loop: true }}
                 onMouseEnter={plugin.current.stop}
                 onMouseLeave={plugin.current.reset}
             >
