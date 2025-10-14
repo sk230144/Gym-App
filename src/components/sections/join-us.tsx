@@ -27,7 +27,7 @@ const JoinUsSection = () => {
                 </p>
                 <div className="mt-8 flex justify-center">
                     <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg font-bold px-8 py-6 rounded-full transition-transform transform hover:scale-105">
-                        <Link href="/#about">View Memberships</Link>
+                        <Link href="/memberships">View Memberships</Link>
                     </Button>
                 </div>
             </div>

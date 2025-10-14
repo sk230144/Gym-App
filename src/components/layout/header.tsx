@@ -15,8 +15,10 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/memberships", label: "Memberships" },
   { href: "/#trainers", label: "Trainers" },
   { href: "/#about", label: "About" },
+  { href: "/contact", label: "Contact" },
   { href: "/admin", label: "Admin" },
 ];
 
@@ -37,7 +39,7 @@ const Header = () => {
               href={link.href}
               className={cn(
                 "transition-colors hover:text-primary",
-                (pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href)))
+                (pathname === link.href || (link.href.includes("#") && pathname === "/") || (link.href !== "/" && !link.href.includes("#") && pathname.startsWith(link.href)))
                   ? "text-primary"
                   : "text-muted-foreground"
               )}
