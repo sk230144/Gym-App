@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Loader2 } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -38,7 +38,8 @@ const navLinks = [
 const PasswordProtectionDialog = ({ onCorrectPassword }: { onCorrectPassword: () => void }) => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    
+    const router = useRouter();
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (password === '1234') {
@@ -77,11 +78,9 @@ const PasswordProtectionDialog = ({ onCorrectPassword }: { onCorrectPassword: ()
                     }}
                 />
                 {error && <Alert variant="destructive"><AlertDescription>{error}</AlertDescription></Alert>}
-                 <DialogClose asChild>
-                    <Button type="submit" className="w-full">
-                        Enter
-                    </Button>
-                </DialogClose>
+                <Button type="submit" className="w-full">
+                    Enter
+                </Button>
             </form>
         </DialogContent>
     );
@@ -92,10 +91,9 @@ const Header = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [isPasswordDialogOpen, setPasswordDialogOpen] = useState(false);
-  const [isNavigating, setIsNavigating] = useState(false);
-
+  
   const handleAdminNavigation = () => {
-    setIsNavigating(true);
+    setPasswordDialogOpen(false);
     router.push('/admin');
   };
 
@@ -124,7 +122,7 @@ const Header = () => {
             ))}
              <DialogTrigger asChild>
                 <span className="transition-colors hover:text-primary text-muted-foreground cursor-pointer">
-                    {isNavigating ? <Loader2 className="animate-spin" /> : 'Members'}
+                    Members
                 </span>
             </DialogTrigger>
             </nav>
@@ -159,7 +157,7 @@ const Header = () => {
                    <Dialog open={isPasswordDialogOpen} onOpenChange={setPasswordDialogOpen}>
                         <DialogTrigger asChild>
                             <span className="text-lg font-medium transition-colors hover:text-primary cursor-pointer text-left">
-                                {isNavigating ? <Loader2 className="animate-spin" /> : 'Members'}
+                                Members
                             </span>
                         </DialogTrigger>
                         <PasswordProtectionDialog onCorrectPassword={handleAdminNavigation} />
