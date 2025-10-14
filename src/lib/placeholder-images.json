@@ -7,6 +7,18 @@
       "imageHint": "gym interior"
     },
     {
+      "id": "hero-slide-2",
+      "description": "A group of people in a high-energy fitness class.",
+      "imageUrl": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "fitness class"
+    },
+    {
+      "id": "hero-slide-3",
+      "description": "A personal trainer assisting a client with their form.",
+      "imageUrl": "https://images.unsplash.com/photo-1554344728-77cf90d922a2?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "personal training"
+    },
+    {
       "id": "facility-weights",
       "description": "A rack of dumbbells of various weights.",
       "imageUrl": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=2070&auto=format&fit=crop",
