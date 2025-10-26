@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# Ensures the official Next runtime is used (auto-detected, but explicit is fine)
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
