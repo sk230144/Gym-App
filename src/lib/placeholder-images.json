@@ -51,13 +51,13 @@
     {
       "id": "trainer-3",
       "description": "Portrait of a non-binary fitness trainer.",
-      "imageUrl": "https://images.unsplash.com/photo-1549476464-373922113593?q=80&w=1974&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1579758629938-03607ccdbaba?auto=format&fit=crop&w=1600&q=80",
       "imageHint": "fitness trainer"
     },
     {
       "id": "owner-1",
       "description": "Portrait of the gym owner.",
-      "imageUrl": "https://images.unsplash.com/photo-1600361596844-596767781373?q=80&w=1974&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=80",
       "imageHint": "gym owner"
     },
     {

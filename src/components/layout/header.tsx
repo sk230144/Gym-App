@@ -36,54 +36,54 @@ const navLinks = [
 ];
 
 const PasswordProtectionDialog = ({ onCorrectPassword }: { onCorrectPassword: () => void }) => {
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-    const router = useRouter();
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const router = useRouter();
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (password === '1234') {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (password === '1234') {
+      setError('');
+      onCorrectPassword();
+    } else {
+      setError('Incorrect password. Please try again.');
+    }
+  };
+
+  return (
+    <DialogContent>
+      <DialogHeader>
+        <DialogTitle className="font-headline text-2xl text-center">Admin Access</DialogTitle>
+        <DialogDescription className="text-center">
+          Please enter the password to access the members area.
+        </DialogDescription>
+      </DialogHeader>
+      <div className="flex justify-center">
+        <Image
+          src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXFrOTloMGNjeGp5cWZjZTA5NXV1N3I2d3JueXl3dDN3MHIybm1ubyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/pXnra1XwsaVCsUZvDP/giphy.gif"
+          alt="Password Entry GIF"
+          width={150}
+          height={150}
+          unoptimized
+        />
+      </div>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <Input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value)
             setError('');
-            onCorrectPassword();
-        } else {
-            setError('Incorrect password. Please try again.');
-        }
-    };
-
-    return (
-        <DialogContent>
-            <DialogHeader>
-                <DialogTitle className="font-headline text-2xl text-center">Admin Access</DialogTitle>
-                <DialogDescription className="text-center">
-                    Please enter the password to access the members area.
-                </DialogDescription>
-            </DialogHeader>
-            <div className="flex justify-center">
-                <Image 
-                    src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGlic3JxYjZpN3Y2eHI5NWJpcjFscDE3dzFkN3VwMmVvdWpydzYxZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LdOyjZ7i0wAJa/giphy.gif"
-                    alt="Password Entry GIF"
-                    width={150}
-                    height={150}
-                    unoptimized
-                />
-            </div>
-            <form onSubmit={handleSubmit} className="space-y-4">
-                <Input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => {
-                        setPassword(e.target.value)
-                        setError('');
-                    }}
-                />
-                {error && <Alert variant="destructive"><AlertDescription>{error}</AlertDescription></Alert>}
-                <Button type="submit" className="w-full">
-                    Enter
-                </Button>
-            </form>
-        </DialogContent>
-    );
+          }}
+        />
+        {error && <Alert variant="destructive"><AlertDescription>{error}</AlertDescription></Alert>}
+        <Button type="submit" className="w-full">
+          Enter
+        </Button>
+      </form>
+    </DialogContent>
+  );
 };
 
 
@@ -91,7 +91,7 @@ const Header = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [isPasswordDialogOpen, setPasswordDialogOpen] = useState(false);
-  
+
   const handleAdminNavigation = () => {
     setPasswordDialogOpen(false);
     router.push('/admin');
@@ -105,28 +105,28 @@ const Header = () => {
         </Link>
 
         <Dialog open={isPasswordDialogOpen} onOpenChange={setPasswordDialogOpen}>
-            <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             {navLinks.map((link) => (
-                <Link
+              <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                    "transition-colors hover:text-primary",
-                    (pathname === link.href || (link.href.includes("#") && pathname === "/") || (link.href !== "/" && !link.href.includes("#") && pathname.startsWith(link.href)))
+                  "transition-colors hover:text-primary",
+                  (pathname === link.href || (link.href.includes("#") && pathname === "/") || (link.href !== "/" && !link.href.includes("#") && pathname.startsWith(link.href)))
                     ? "text-primary"
                     : "text-muted-foreground"
                 )}
-                >
+              >
                 {link.label}
-                </Link>
+              </Link>
             ))}
-             <DialogTrigger asChild>
-                <span className="transition-colors hover:text-primary text-muted-foreground cursor-pointer">
-                    Members
-                </span>
+            <DialogTrigger asChild>
+              <span className="transition-colors hover:text-primary text-muted-foreground cursor-pointer">
+                Members
+              </span>
             </DialogTrigger>
-            </nav>
-            <PasswordProtectionDialog onCorrectPassword={handleAdminNavigation} />
+          </nav>
+          <PasswordProtectionDialog onCorrectPassword={handleAdminNavigation} />
         </Dialog>
 
 
@@ -154,14 +154,14 @@ const Header = () => {
                       </Link>
                     </SheetClose>
                   ))}
-                   <Dialog open={isPasswordDialogOpen} onOpenChange={setPasswordDialogOpen}>
-                        <DialogTrigger asChild>
-                            <span className="text-lg font-medium transition-colors hover:text-primary cursor-pointer text-left">
-                                Members
-                            </span>
-                        </DialogTrigger>
-                        <PasswordProtectionDialog onCorrectPassword={handleAdminNavigation} />
-                    </Dialog>
+                  <Dialog open={isPasswordDialogOpen} onOpenChange={setPasswordDialogOpen}>
+                    <DialogTrigger asChild>
+                      <span className="text-lg font-medium transition-colors hover:text-primary cursor-pointer text-left">
+                        Members
+                      </span>
+                    </DialogTrigger>
+                    <PasswordProtectionDialog onCorrectPassword={handleAdminNavigation} />
+                  </Dialog>
                 </nav>
               </div>
             </SheetContent>

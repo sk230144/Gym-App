@@ -42,7 +42,7 @@ export default function MembershipsPage() {
     <div className="bg-background text-foreground">
         <section className="text-center py-12 md:py-20 px-4 bg-card">
             <div className="relative inline-block mb-4">
-                <Image src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Y2ZTUzd3R0cWFlYm5hNTVzZzY5dGl5dzBqemV5NXZoejJ6aXJmbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L1d7DKp6iDva8/giphy.gif" alt="Workout GIF" width={150} height={150} className="rounded-full mx-auto" />
+                  <Image src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3Y5d3huMjRuZ2phMXQwc3VlMXY3MGVsenZwZ2N1cmFtaG5kNDU3biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/axu6dFuca4HKM/giphy.gif" alt="Workout GIF" width={150} height={150} className="rounded-full mx-auto" />
             </div>
             <h1 className="text-4xl md:text-6xl font-headline font-extrabold text-primary animate-pulse">
                 Get a 5-Day Free Trial!
